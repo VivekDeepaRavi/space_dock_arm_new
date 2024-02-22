@@ -1,0 +1,28 @@
+ros_controllers:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - j1
+    - j2
+    - j3
+    - j4
+  gains:
+    j1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

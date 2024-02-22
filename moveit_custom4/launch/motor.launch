@@ -1,0 +1,7 @@
+<launch>
+  <!-- Launch the dynamixel_workbench_controllers one.launch -->
+  <include file="$(find dynamixel_workbench_controllers)/launch/one.launch" />
+
+  <!-- Launch the dynamixel_workbench_controllers end_eff.launch -->
+  <include file="$(find dynamixel_workbench_controllers)/launch/end_eff.launch" />
+</launch>

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=ARM Control Panel
+Type=Application
+Exec=/home/aroop/ray_ws/arm_ui/arm_app.sh
+Terminal=false
+Icon=/home/aroop/ray_ws/arm_ui/app.jpg

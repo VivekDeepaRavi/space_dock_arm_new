@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robotics ARM</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <script src="assets/js/script.js"></script> -->
+    <script src="assets/js/eventemitter2.min.js"></script>
+    <script src="assets/js/roslib.min.js"></script>
+    <script src="assets/js/ros.js"></script>
+    <style>
+       
+    </style>
+
+</head>
+<body>
+   
+    <div class="centered-div">
+        <div class="alert fade-in" id="status">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          </div>
+         <button class="button" id="stop" style="background-color: #123; display: none;">Stop</button>
+
+         <button class="button" id="launch" style="background-color: #123;">Launch</button>
+
+         <button class="button" id="start" style="background-color: #1234;" disabled>Start</button>
+
+        <button class="button" id="kill" style="background-color: #1234;" disabled>Kill</button>
+        <button class="button" id="undock" style="background-color: #1234;" disabled>Un Dock</button>
+    </div>
+</body>
+<script>
+//  buttonClick("start_button");
+  const start = document.getElementById('start');
+  const kill = document.getElementById('kill');
+  const undock = document.getElementById('undock');
+  const stop = document.getElementById('stop');
+  const launch = document.getElementById('launch');
+
+
+    // Add click event listener to the first button
+
+    launch.addEventListener('click', () => {
+
+      stop.style.display = 'block';
+      launch.style.display = 'none'
+      start.disabled = false;
+
+      start.style.backgroundColor = '#123';
+      buttonClick("launch_button");
+
+    });
+
+   stop.addEventListener('click', () => {
+
+    launch.style.display = 'block';
+    stop.style.display = 'none';
+
+      start.disabled = true;
+      kill.disabled = true;
+      undock.disabled = true;
+
+      start.style.backgroundColor = '#1234';
+      kill.style.backgroundColor = '#1234';
+      undock.style.backgroundColor = '#1234';
+  
+
+
+    buttonClick("stop_button");
+
+});
+
+
+    start.addEventListener('click', () => {
+      console.log("start button");
+      start.disabled = true;
+      kill.disabled = false;
+      undock.disabled = true;
+  
+      start.style.backgroundColor = '#1234';
+      kill.style.backgroundColor = '#123';
+      undock.style.backgroundColor = '#1234';
+  
+      buttonClick("start_button"); // Publish button fedback
+  
+  
+  
+    });
+  
+    kill.addEventListener('click', () => {
+      // Disable the second and third buttons
+      console.log("kill button");
+  
+      if (undock.disabled == false){
+        console.log("undock shows");
+      }
+      else{
+  
+        start.disabled = false;
+        kill.disabled = true;
+        undock.disabled = true;
+  
+        start.style.backgroundColor = '#123';
+        kill.style.backgroundColor = '#1234';
+        undock.style.backgroundColor = '#1234';
+  
+      }
+  
+      
+  
+  
+      console.log("kill",kill.disabled);
+      console.log("start",start.disabled);
+      console.log("undock",undock.disabled);
+  
+      buttonClick("kill_button");
+  
+  
+  
+    });
+  
+    undock.addEventListener('click', () => {
+      // Disable the second and third buttons
+      console.log("undock button")
+      start.disabled = false;
+      kill.disabled = false;
+      undock.disabled = true;
+  
+      start.style.backgroundColor = '#1234';
+      kill.style.backgroundColor = '#123';
+      undock.style.backgroundColor = '#1234';
+  
+      buttonClick("undock_button");
+  
+  
+    });
+  
+    function hideStatus() {
+      var statusDiv = document.getElementById('status');
+      statusDiv.style.display = 'none';
+    }
+  
+    // subscribe
+    alert_listener.subscribe(function (msg){
+      console.log("alert listener subscribed");
+      var status  = document.getElementById('status');
+      if (msg.data == 'docked'){
+  
+        status.style.display = 'block';
+        undock.disabled = false;
+        undock.style.backgroundColor = '#123';
+        status.innerHTML = "Sucessfully Docked !"
+        setTimeout(hideStatus, 2000);
+      }
+      if (msg.data == 'undocked'){
+  
+        
+        undock.disabled = false;
+        undock.style.backgroundColor = '#1234';
+        
+        start.disabled = true;
+        start.style.backgroundColor = '#123';
+        status.style.display = 'block';
+        status.innerHTML = "Sucessfully Undocked !"
+        setTimeout(hideStatus, 2000);
+      }
+  
+    });
+    </script>
+
+</html>

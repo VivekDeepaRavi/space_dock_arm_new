@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="spacearmdfm">
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.034598 0.040396 2.6437E-05" rpy="0 0 0" />
+            <mass value="40.61" />
+            <inertia ixx="5.5755" ixy="6.3594E-13" ixz="5.2317E-13" iyy="7.0157" iyz="3.5193E-07" izz="2.9754" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/base_link1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.89804 0.91765 0.92941 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/base_link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="l1">
+        <inertial>
+            <origin xyz="0.10071 -3.3868E-06 0.024824" rpy="0 0 0" />
+            <mass value="0.50688" />
+            <inertia ixx="0.00010294" ixy="5.2662E-13" ixz="-6.4357E-05" iyy="0.00034482" iyz="6.3707E-13" izz="0.00032713" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.75294 0.75294 0.75294 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="j1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 3.14" />
+        <parent link="base_link" />
+        <child link="l1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.13" upper="3.13" effort="3" velocity="6.28" />
+    </joint>
+    <link name="l2">
+        <inertial>
+            <origin xyz="0.099702 -3.4269E-06 0.024709" rpy="0 0 0" />
+            <mass value="0.50096" />
+            <inertia ixx="0.00010276" ixy="5.2216E-13" ixz="-6.4357E-05" iyy="0.00034464" iyz="6.3588E-13" izz="0.00032678" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.75294 0.75294 0.75294 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="j2" type="revolute">
+        <origin xyz="0.186 0 0.0625" rpy="0 0 3.14" />
+        <parent link="l1" />
+        <child link="l2" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.13" upper="3.13" effort="3" velocity="6.28" />
+    </joint>
+    <link name="l3">
+        <inertial>
+            <origin xyz="-0.0053898 0.0003839 0.054944" rpy="0 0 0" />
+            <mass value="0.84312" />
+            <inertia ixx="0.0011346" ixy="1.1847E-06" ixz="3.2835E-05" iyy="0.00031979" iyz="-7.9844E-08" izz="0.0010569" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.89804 0.91765 0.92941 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="j3" type="revolute">
+        <origin xyz="0.18569 0 0.055" rpy="0 0 0" />
+        <parent link="l2" />
+        <child link="l3" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.5" upper="2.5" effort="3" velocity="6.28" />
+    </joint>
+    <link name="l4">
+        <inertial>
+            <origin xyz="0.00995749778081301 1.58054141102916E-12 2.77555756156289E-17" rpy="0 0 0" />
+            <mass value="0.00748445641331585" />
+            <inertia ixx="2.34586308333842E-07" ixy="-1.39812823749695E-22" ixz="-1.14481971585751E-22" iyy="5.71579386392445E-07" iyz="-8.98998509364347E-23" izz="5.71579386392445E-07" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l4.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://spacearmdfm/meshes/l4.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="j4" type="revolute">
+        <origin xyz="-0.0346770784550887 -0.00279158474661675 0.0684999999999987" rpy="0 0 0" />
+        <parent link="l3" />
+        <child link="l4" />
+        <axis xyz="1 0 0" />
+        <limit lower="-2.09" upper="2.09" effort="0" velocity="0" />
+    </joint>
+    <transmission name="trans_j1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #123;
+}
+.centered-div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    background-color:wheat;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 5px 10px; */
+    /* box-shadow:  2px 4px 10px 3px rgba(234, 238, 238, 0.7); */
+    border-radius: 10px;
+}
+
+.button {
+margin: 30px;
+border: none;
+background: #123;
+color: #ffffff;
+font-weight: 500;
+padding: 10px 16px;
+position: relative;
+cursor: pointer;
+font-family: "Fira Sans", sans-serif;
+overflow: hidden;
+border-radius: 5px;
+min-width: 200px;
+min-height: 50px;
+font-weight: 900;
+font-size: 20px;
+}
+
+.alert {
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: #568008;
+    color: white;
+    border-radius: 10px;
+    height: 15px;
+    display: none;
+  
+  }
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+.closebtn:hover {
+    color: black;
+  }
+  
+.fade-in{
+    animation:fade-in 1.2s cubic-bezier(.39,.575,.565,1.000) both
+}
+  
+@keyframes fade-in{
+    0%{
+        opacity:0
+    }
+    100%{
+        opacity:1
+    }
+}

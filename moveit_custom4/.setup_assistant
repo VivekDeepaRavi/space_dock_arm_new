@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: spacearmdfm
+    relative_path: urdf/spacearmdfm.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/spacearmdfm.srdf
+  CONFIG:
+    author_name: ragav
+    author_email: ragav@gmail.com
+    generated_timestamp: 1696324873

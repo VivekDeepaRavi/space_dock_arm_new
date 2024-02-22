@@ -1,0 +1,17 @@
+<launch>
+    <arg name="node_start_delay" default="5.0"/>
+    
+    <include file="$(dirname)/demo.launch" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+    <include file="$(find dynamixel_workbench_controllers)/launch/one.launch" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+    
+    <node pkg="moveit_custom4" type="move_grp_flow_finalurdf_ui_integrated2.py" name="ui_integrated" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+    <node pkg="moveit_custom4" type="node1.py" name="test" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+    
+    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
+        <param name="camera_name" value="usb_cam"/>
+        <param name="camera_frame_id" value="usb_cam"/>
+    </node>
+
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+    <node pkg="moveit_custom4" type="braveb.sh" name="brave" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/> 
+</launch>
